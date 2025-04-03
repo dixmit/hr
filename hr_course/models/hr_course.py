@@ -7,6 +7,7 @@ from odoo import api, fields, models
 class HRCourseAttendee(models.Model):
     _name = "hr.course.attendee"
     _description = "Course Attendee"
+    _inherit = ["mail.thread", "mail.activity.mixin", "analytic.mixin"]
 
     course_schedule_id = fields.Many2one(
         "hr.course.schedule", ondelete="cascade", readonly=True, required=True
